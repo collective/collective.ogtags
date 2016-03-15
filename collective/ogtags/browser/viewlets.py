@@ -48,9 +48,14 @@ class OGTagsViewlet(ViewletBase):
         return tags
 
     def image_tags(self):
+        self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+        if not self.settings.enabled:
+            return
         tags = []
         context = self.context.aq_inner
         scales = context.restrictedTraverse('/'.join(context.getPhysicalPath()) +'/@@images')
+        if not scales:
+            return
         try:
             field = context.getField('image') or context.getField('leadImage')
             if not field:
@@ -62,8 +67,11 @@ class OGTagsViewlet(ViewletBase):
                 'og_fb',
                 'og_tw',
                 'og_ln']:
-            image = scales.scale('image', scale=scale)
-            if not image:
+            try:
+                image = scales.scale(field.getName(), scale=scale)
+                if not image:
+                    continue
+            except AttributeError:
                 continue
             tag = {}
             if scale == 'og_tw':
