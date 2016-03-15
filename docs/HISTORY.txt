@@ -4,4 +4,6 @@ Changelog
 0.1bdev (unreleased)
 --------------------
 
+- Handle images and leadimages correctly.  [jladage]
+
 - Initial release

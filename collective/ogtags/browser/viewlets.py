@@ -4,6 +4,7 @@ from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from plone.app.imaging.utils import getAllowedSizes
 
+
 class OGTagsViewlet(ViewletBase):
     def meta_tags(self):
         self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
@@ -49,6 +50,7 @@ class OGTagsViewlet(ViewletBase):
     def image_tags(self):
         tags = []
         context = self.context.aq_inner
+        scales = context.restrictedTraverse('/'.join(context.getPhysicalPath()) +'/@@images')
         try:
             field = context.getField('image') or context.getField('leadImage')
             if not field:
@@ -60,14 +62,14 @@ class OGTagsViewlet(ViewletBase):
                 'og_fb',
                 'og_tw',
                 'og_ln']:
-            image = field.getScale(context, scale=scale)
+            image = scales.scale('image', scale=scale)
             if not image:
                 continue
             tag = {}
             if scale == 'og_tw':
-                tag['twitter:image'] = image.absolute_url()
+                tag['twitter:image'] = image.url
             else:
-                tag['og:image'] = image.absolute_url()
+                tag['og:image'] = image.url
                 tag['og:image:width'] = image.width
                 tag['og:image:height'] = image.height
             tags.append(tag.copy())
