@@ -53,7 +53,10 @@ class OGTagsViewlet(ViewletBase):
             return
         tags = []
         context = self.context.aq_inner
-        scales = context.restrictedTraverse('/'.join(context.getPhysicalPath()) +'/@@images')
+        try:
+            scales = context.restrictedTraverse('/'.join(context.getPhysicalPath()) +'/@@images')
+        except AttributeError:
+            return
         if not scales:
             return
         try:
