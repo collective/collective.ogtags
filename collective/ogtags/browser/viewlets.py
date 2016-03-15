@@ -30,13 +30,19 @@ class OGTagsViewlet(ViewletBase):
             tags['og:url'] = url
 
         # social media specific
-        tags['fb:app_id'] = self.settings.fb_id
-        tags['twitter:site'] = self.settings.tw_id
+        if self.settings.fb_id:
+            tags['fb:app_id'] = self.settings.fb_id
+        if self.settings.fb_username:
+            tags['og:article:publisher'] = "https://www.facebook.com/" \
+                + self.settings.fb_username
+        if self.settings.tw_id:
+            tags['twitter:site'] = self.settings.tw_id
         tags['twitter:card'] = u'summary'
 
         # misc
         tags['og:type'] = u'website'
-        tags['og:site_name'] = self.settings.og_site_name
+        if self.settings.og_site_name:
+            tags['og:site_name'] = self.settings.og_site_name
 
         return tags
 
@@ -56,7 +62,6 @@ class OGTagsViewlet(ViewletBase):
                 'og_ln']:
             image = field.getScale(context, scale=scale)
             if not image:
-                print 'fail'
                 continue
             tag = {}
             if scale == 'og_tw':
@@ -66,5 +71,4 @@ class OGTagsViewlet(ViewletBase):
                 tag['og:image:width'] = image.width
                 tag['og:image:height'] = image.height
             tags.append(tag.copy())
-        print tags
         return tags
