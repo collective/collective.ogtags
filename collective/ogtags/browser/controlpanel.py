@@ -28,8 +28,8 @@ class IOGTagsControlPanel(Interface):
 
 class OGTagsCPForm(controlpanel.RegistryEditForm):
     schema = IOGTagsControlPanel
-    label = _(u'OpenGraph settings')
-    description = _(u'Settings for OpenGraph')
+    label = _(u'OGTags settings')
+    description = _(u'Settings for collective.ogtags')
 
 
 class OGTagsControlPanel(controlpanel.ControlPanelFormWrapper):
