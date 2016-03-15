@@ -6,7 +6,7 @@ from zope.interface import Interface
 
 class IOGTagsControlPanel(Interface):
     enabled = schema.Bool(title=_('Enabled'),
-            default=False)
+            default=True)
 
     og_site_name = schema.TextLine(title=_('Site name'),
             required=False,
