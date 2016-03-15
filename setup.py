@@ -6,7 +6,7 @@ version = '0.1b'
 setup(name='collective.ogtags',
       version=version,
       description="OpenGraph for plone4",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
