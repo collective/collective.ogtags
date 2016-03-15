@@ -65,6 +65,7 @@ class OGTagsViewlet(ViewletBase):
                 raise AttributeError
         except:
             return
+        tag_scales = []
         for scale in [
                 'og_fbl',
                 'og_fb',
@@ -80,8 +81,10 @@ class OGTagsViewlet(ViewletBase):
             if scale == 'og_tw':
                 tag['twitter:image'] = image.url
             else:
-                tag['og:image'] = image.url
-                tag['og:image:width'] = image.width
-                tag['og:image:height'] = image.height
+                if (image.width, image.height) not in tag_scales:
+                    tag['og:image'] = image.url
+                    tag['og:image:width'] = image.width
+                    tag['og:image:height'] = image.height
+                    tag_scales.append((image.width, image.height))
             tags.append(tag.copy())
         return tags
