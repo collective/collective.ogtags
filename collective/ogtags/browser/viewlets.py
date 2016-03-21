@@ -8,7 +8,10 @@ from zope.component import getUtility
 
 class OGTagsViewlet(ViewletBase):
     def meta_tags(self):
-        self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+        try:
+            self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+        except:
+            return
         if not self.settings.enabled:
             return
         context = self.context.aq_inner
@@ -49,7 +52,10 @@ class OGTagsViewlet(ViewletBase):
         return tags
 
     def image_tags(self):
-        self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+        try:
+            self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+        except:
+            return
         if not self.settings.enabled:
             return
         tags = []
