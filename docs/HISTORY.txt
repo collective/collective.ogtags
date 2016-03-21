@@ -4,8 +4,14 @@ Changelog
 0.1bdev (unreleased)
 --------------------
 
-- Documentation [diederik]
+- prevent generating duplicate image tags
+  [diederik]
 
-- Handle images and leadimages correctly.  [jladage]
+- Documentation
+  [diederik]
 
-- Initial release [diederik]
+- Handle images and leadimages correctly.
+  [jladage]
+
+- Initial release
+  [diederik]

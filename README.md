@@ -20,16 +20,16 @@ Settings
 Go to the ogtags settings in the plone control panel. Provide as much of the
 following settings as possible:
 
- - Site name
+ - Site name:
         Provide the name of your site here.
- - Facebook username
-        Provide your facebook username. You can find this by going to the
+ - Facebook username:
+        Provide your facebook username. You can find this by going to your
         facebook page. The format is:
         "https://www.facebook.com/<facebook_username>"
- - Facebook app id
+ - Facebook app id:
         Provide your facebook app id. Go to
         "https://developers.facebook.com/apps", choose your app and look for
         your app id in the description.
- - Twitter username
+ - Twitter username:
         Provide your twitter name. The @-sign included, for example:
         @zestsoftware
