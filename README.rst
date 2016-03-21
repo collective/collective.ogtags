@@ -1,5 +1,6 @@
 Introduction
 ============
+
 This packages provides Open Graph tags similar to those built in in plone 5.
 Basically this is an attempt to backport the social media viewlet of
 plone.app.layout in plone 5 to plone 4.
@@ -11,12 +12,14 @@ author, description, url, images and more in order to create a marked up link.
 
 Installation
 ============
+
  - add collective.ogtags to your eggs and run buildout
  - go to the add-ons page in the plone control panel and install
-collective.ogtags
+   collective.ogtags
 
 Settings
 ========
+
 Go to the ogtags settings in the plone control panel. Provide as much of the
 following settings as possible:
 
