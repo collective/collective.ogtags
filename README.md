@@ -33,3 +33,6 @@ following settings as possible:
  - Twitter username:
         Provide your twitter name. The @-sign included, for example:
         @zestsoftware
+ - Default image:
+        Provide the URL to an image to be used in case no other image can be
+        found. By default this will be /logo.png.

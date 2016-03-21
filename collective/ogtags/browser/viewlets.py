@@ -1,8 +1,9 @@
 from .controlpanel import IOGTagsControlPanel
+from plone.app.imaging.utils import getAllowedSizes
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
+from zope.component import getMultiAdapter
 from zope.component import getUtility
-from plone.app.imaging.utils import getAllowedSizes
 
 
 class OGTagsViewlet(ViewletBase):
@@ -56,15 +57,15 @@ class OGTagsViewlet(ViewletBase):
         try:
             scales = context.restrictedTraverse('/'.join(context.getPhysicalPath()) +'/@@images')
         except AttributeError:
-            return
+            return self.default_image(self.settings.default_img)
         if not scales:
-            return
+            return self.default_image(self.settings.default_img)
         try:
             field = context.getField('image') or context.getField('leadImage')
             if not field:
                 raise AttributeError
         except:
-            return
+            return self.default_image(self.settings.default_img)
         tag_scales = []
         for scale in [
                 'og_fbl',
@@ -87,4 +88,18 @@ class OGTagsViewlet(ViewletBase):
                     tag['og:image:height'] = image.height
                     tag_scales.append((image.width, image.height))
             tags.append(tag.copy())
+        if not tags:
+            return self.default_image(self.settings.default_img)
         return tags
+
+    def default_image(self, image):
+        if not image:
+            return
+        portal_state = getMultiAdapter(
+            (self.context, self.request), name=u'plone_portal_state')
+        site_root_url = portal_state.navigation_root_url()
+        twitter_tag = {}
+        twitter_tag['twitter:image'] = '%s%s' % (site_root_url, image)
+        og_tag = {}
+        og_tag['og:image'] = '%s%s' % (site_root_url, image)
+        return [twitter_tag, og_tag]

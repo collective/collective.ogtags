@@ -25,6 +25,11 @@ class IOGTagsControlPanel(Interface):
             required=False,
             default=u'')
 
+    default_img = schema.TextLine(title=_('Default image'),
+            description=_('Path to default image'),
+            required=False,
+            default=u'/logo.png')
+
 
 class OGTagsCPForm(controlpanel.RegistryEditForm):
     schema = IOGTagsControlPanel
