@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1b0'
+version = '1.0.0b1'
 
 setup(name='collective.ogtags',
       version=version,
