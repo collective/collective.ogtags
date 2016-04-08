@@ -18,7 +18,7 @@ CURRENT_PATH=`pwd`
 CATALOGNAME="collective.ogtags"
 
 # List of languages
-LANGUAGES="en nl"
+LANGUAGES="nl"
 
 # Create locales folder structure for languages
 install -d locales
