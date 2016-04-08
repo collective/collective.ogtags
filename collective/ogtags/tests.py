@@ -1,15 +1,13 @@
-import unittest
-
-#from zope.testing import doctestunit
-#from zope.component import testing
-from Testing import ZopeTestCase as ztc
-
 from Products.Five import fiveconfigure
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
-ptc.setupPloneSite()
+from Testing import ZopeTestCase as ztc
 
 import collective.ogtags
+import unittest
+
+
+ptc.setupPloneSite()
 
 
 class TestCase(ptc.PloneTestCase):

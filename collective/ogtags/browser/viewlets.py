@@ -1,5 +1,4 @@
 from .controlpanel import IOGTagsControlPanel
-from plone.app.imaging.utils import getAllowedSizes
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
 from zope.component import getMultiAdapter
