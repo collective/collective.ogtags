@@ -5,10 +5,14 @@ This packages provides Open Graph tags similar to those built in in plone 5.
 Basically this is an attempt to backport the social media viewlet of
 plone.app.layout in plone 5 to plone 4.
 
-#### What is Open Graph
+
+What is Open Graph
+==================
+
 Open Graph is a specification developed by Facebook to provide information
 about a webpage. This information is used by social media sites to get title,
 author, description, url, images and more in order to create a marked up link.
+
 
 Installation
 ============
@@ -16,6 +20,7 @@ Installation
  - add collective.ogtags to your eggs and run buildout
  - go to the add-ons page in the plone control panel and install
    collective.ogtags
+
 
 Settings
 ========
