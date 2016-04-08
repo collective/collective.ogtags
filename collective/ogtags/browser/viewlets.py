@@ -1,7 +1,8 @@
+from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from Acquisition import aq_inner
-from .controlpanel import IOGTagsControlPanel
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
+from zope.component import ComponentLookupError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 
@@ -12,7 +13,7 @@ class OGTagsViewlet(ViewletBase):
         try:
             self.settings = getUtility(
                 IRegistry).forInterface(IOGTagsControlPanel)
-        except:
+        except (ComponentLookupError, KeyError):
             return
         if not self.settings.enabled:
             return
@@ -57,7 +58,7 @@ class OGTagsViewlet(ViewletBase):
         try:
             self.settings = getUtility(
                 IRegistry).forInterface(IOGTagsControlPanel)
-        except:
+        except (ComponentLookupError, KeyError):
             return
         if not self.settings.enabled:
             return
@@ -74,7 +75,7 @@ class OGTagsViewlet(ViewletBase):
             field = context.getField('image') or context.getField('leadImage')
             if not field:
                 raise AttributeError
-        except:
+        except AttributeError:
             return self.default_image(self.settings.default_img)
         tag_scales = []
         for scale in [
