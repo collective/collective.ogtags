@@ -1,3 +1,4 @@
+from Acquisition import aq_inner
 from .controlpanel import IOGTagsControlPanel
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
@@ -15,7 +16,7 @@ class OGTagsViewlet(ViewletBase):
             return
         if not self.settings.enabled:
             return
-        context = self.context.aq_inner
+        context = aq_inner(self.context)
         tags = {}
 
         # set title
@@ -61,7 +62,7 @@ class OGTagsViewlet(ViewletBase):
         if not self.settings.enabled:
             return
         tags = []
-        context = self.context.aq_inner
+        context = aq_inner(self.context)
         try:
             scales = context.restrictedTraverse(
                 '/'.join(context.getPhysicalPath()) + '/@@images')
