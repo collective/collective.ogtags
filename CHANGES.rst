@@ -4,7 +4,8 @@ Changelog
 1.0.0b2 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Support quintagroup.seoptimizer if it is installed and enabled.  We
+  use its title, description and canonical url when set.  [maurits]
 
 
 1.0.0b1 (2016-03-21)

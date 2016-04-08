@@ -1,10 +1,20 @@
-from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from Acquisition import aq_inner
+from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.utils import safe_unicode
 from zope.component import ComponentLookupError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
+from zope.component import queryMultiAdapter
+
+import cgi
+
+
+def escape(value):
+    """Extended escape, taken from quintagroup.seoptimizer."""
+    value = cgi.escape(value, True)
+    return value.replace("'", "&apos;")
 
 
 class OGTagsViewlet(ViewletBase):
@@ -20,20 +30,35 @@ class OGTagsViewlet(ViewletBase):
         context = aq_inner(self.context)
         tags = {}
 
-        # set title
+        # Basic properties
         title = context.title
+        description = context.Description()
+        url = context.absolute_url()
+
+        # Allow overrides from quintagroup.seoptimizer
+        seo = queryMultiAdapter(
+            (self.context, self.request), name='seo_context')
+        if seo is not None:
+            if seo['has_seo_title']:
+                title = safe_unicode(seo["seo_title"])
+            if seo['has_seo_description']:
+                description = safe_unicode(seo["seo_description"])
+            if seo['has_seo_canonical']:
+                url = safe_unicode(seo["seo_canonical"])
+
+        # set title
         if title:
+            title = escape(title)
             tags['og:title'] = title
             tags['twitter:title'] = title
 
         # set description
-        description = context.Description()
         if description:
+            description = escape(description)
             tags['og:description'] = description
             tags['twitter:description'] = description
 
         # set url
-        url = context.absolute_url()
         if url:
             tags['og:url'] = url
 
