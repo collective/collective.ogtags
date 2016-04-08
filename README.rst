@@ -33,14 +33,14 @@ following settings as possible:
  - Facebook username:
         Provide your facebook username. You can find this by going to your
         facebook page. The format is:
-        "https://www.facebook.com/<facebook_username>"
+        ``https://www.facebook.com/<facebook_username>``
  - Facebook app id:
         Provide your facebook app id. Go to
-        "https://developers.facebook.com/apps", choose your app and look for
+        https://developers.facebook.com/apps, choose your app and look for
         your app id in the description.
  - Twitter username:
         Provide your twitter name. The @-sign included, for example:
-        @zestsoftware
+        ``@zestsoftware``
  - Default image:
         Provide the URL to an image to be used in case no other image can be
-        found. By default this will be /logo.png.
+        found. By default this will be ``/logo.png``.

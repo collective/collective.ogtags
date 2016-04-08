@@ -7,6 +7,7 @@ setup(
     version=version,
     description='OpenGraph for plone4',
     long_description=(open('README.rst').read() + '\n' +
+                      open('CONTRIBUTORS.rst').read() + '\n' +
                       open('CHANGES.rst').read()),
     # Get more strings from
     # https://pypi.python.org/pypi?:action=list_classifiers
