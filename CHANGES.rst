@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.0rc2 (unreleased)
+1.0.0rc2 (2016-04-08)
 ---------------------
 
 - Improved PyPI page.  [maurits]
