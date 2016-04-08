@@ -39,7 +39,7 @@ class OGTagsViewlet(ViewletBase):
         if self.settings.fb_id:
             tags['fb:app_id'] = self.settings.fb_id
         if self.settings.fb_username:
-            tags['og:article:publisher'] = "https://www.facebook.com/" \
+            tags['og:article:publisher'] = 'https://www.facebook.com/' \
                 + self.settings.fb_username
         if self.settings.tw_id:
             tags['twitter:site'] = self.settings.tw_id
