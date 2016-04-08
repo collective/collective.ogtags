@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0.0b2 (unreleased)
---------------------
+1.0.0rc1 (2016-04-08)
+---------------------
 
 - Support quintagroup.seoptimizer if it is installed and enabled.  We
   use its title, description and canonical url when set.  [maurits]
