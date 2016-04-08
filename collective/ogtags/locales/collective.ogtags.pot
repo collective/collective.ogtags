@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-15 14:15+0000\n"
+"POT-Creation-Date: 2016-04-08 12:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,50 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.ogtags\n"
 
-#: ./browser/controlpanel.py:8
+#: ./browser/controlpanel.py:34
+msgid "Default image"
+msgstr ""
+
+#: ./browser/controlpanel.py:9
 msgid "Enabled"
 msgstr ""
 
-#: ./browser/controlpanel.py:19
+#: ./browser/controlpanel.py:23
 msgid "Facebook app id"
 msgstr ""
 
-#: ./browser/controlpanel.py:15
+#: ./browser/controlpanel.py:18
 msgid "Facebook username"
 msgstr ""
 
-#: ./browser/controlpanel.py:31
+#: ./configure.zcml:19
+msgid "Installs the collective.ogtags package"
+msgstr ""
+
+#: ./browser/controlpanel.py:42
 msgid "OGTags settings"
 msgstr ""
 
-#: ./browser/controlpanel.py:32
+#: ./browser/controlpanel.py:35
+msgid "Path to default image"
+msgstr ""
+
+#: ./browser/controlpanel.py:43
 msgid "Settings for collective.ogtags"
 msgstr ""
 
-#: ./browser/controlpanel.py:11
+#: ./browser/controlpanel.py:13
 msgid "Site name"
 msgstr ""
 
-#: ./browser/controlpanel.py:23
+#: ./browser/controlpanel.py:28
 msgid "Twitter username"
 msgstr ""
 
-#: ./browser/controlpanel.py:24
-msgid "example: @zestsoftware"
+#: ./configure.zcml:19
+msgid "collective.ogtags"
 msgstr ""
 
+#: ./browser/controlpanel.py:29
+msgid "example: @zestsoftware"
+msgstr ""
