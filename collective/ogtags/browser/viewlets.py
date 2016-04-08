@@ -7,9 +7,11 @@ from zope.component import getUtility
 
 
 class OGTagsViewlet(ViewletBase):
+
     def meta_tags(self):
         try:
-            self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+            self.settings = getUtility(
+                IRegistry).forInterface(IOGTagsControlPanel)
         except:
             return
         if not self.settings.enabled:
@@ -53,7 +55,8 @@ class OGTagsViewlet(ViewletBase):
 
     def image_tags(self):
         try:
-            self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
+            self.settings = getUtility(
+                IRegistry).forInterface(IOGTagsControlPanel)
         except:
             return
         if not self.settings.enabled:
@@ -61,7 +64,8 @@ class OGTagsViewlet(ViewletBase):
         tags = []
         context = self.context.aq_inner
         try:
-            scales = context.restrictedTraverse('/'.join(context.getPhysicalPath()) +'/@@images')
+            scales = context.restrictedTraverse(
+                '/'.join(context.getPhysicalPath()) + '/@@images')
         except AttributeError:
             return self.default_image(self.settings.default_img)
         if not scales:
