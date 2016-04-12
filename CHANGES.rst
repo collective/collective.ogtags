@@ -4,7 +4,7 @@ Changelog
 1.0.0rc3 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- Add support namedimagefile images.  [jladage]
 
 
 1.0.0rc2 (2016-04-08)

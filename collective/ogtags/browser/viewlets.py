@@ -97,19 +97,25 @@ class OGTagsViewlet(ViewletBase):
         if not scales:
             return self.default_image(self.settings.default_img)
         try:
-            field = context.getField('image') or context.getField('leadImage')
-            if not field:
-                raise AttributeError
-        except AttributeError:
-            return self.default_image(self.settings.default_img)
+            image = context.image
+            field = 'image'
+        except:
+            try:
+                image = context.getField('image') or context.getField('leadImage')
+                field = image.getName()
+                if not field:
+                    raise AttributeError
+            except AttributeError:
+                return self.default_image(self.settings.default_img)
         tag_scales = []
         for scale in [
                 'og_fbl',
                 'og_fb',
                 'og_tw',
                 'og_ln']:
+            fieldname = field or 'image'
             try:
-                image = scales.scale(field.getName(), scale=scale)
+                image = scales.scale(fieldname, scale=scale)
                 if not image:
                     continue
             except AttributeError:
