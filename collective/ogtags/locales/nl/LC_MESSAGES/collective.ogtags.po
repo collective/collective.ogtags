@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.ogtags 0.1\n"
-"POT-Creation-Date: 2016-04-08 12:18+0000\n"
+"POT-Creation-Date: 2016-04-12 21:31+0000\n"
 "PO-Revision-Date: 2016-03-15 15:13+0000\n"
 "Last-Translator: Diederik Veeze <d.veeze@zestsoftware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: ./browser/controlpanel.py:34
 msgid "Default image"
-msgstr ""
+msgstr "Standaard afbeelding"
 
 #: ./browser/controlpanel.py:9
 msgid "Enabled"
@@ -32,7 +32,7 @@ msgstr "Facebook gebruikersnaam"
 
 #: ./configure.zcml:19
 msgid "Installs the collective.ogtags package"
-msgstr ""
+msgstr "Installeert het collective.ogtags product"
 
 #: ./browser/controlpanel.py:42
 msgid "OGTags settings"
@@ -40,7 +40,7 @@ msgstr "Instellingen ogtags"
 
 #: ./browser/controlpanel.py:35
 msgid "Path to default image"
-msgstr ""
+msgstr "Pad naar de standaard afbeelding"
 
 #: ./browser/controlpanel.py:43
 msgid "Settings for collective.ogtags"

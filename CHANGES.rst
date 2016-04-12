@@ -6,6 +6,8 @@ Changelog
 
 - Add support namedimagefile images.  [jladage]
 
+- Update Dutch translations and add missing en translations.  [jladage]
+
 
 1.0.0rc2 (2016-04-08)
 ---------------------
