@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0.0rc3'
+version = '1.0.0rc4.dev0'
 
 setup(
     name='collective.ogtags',
