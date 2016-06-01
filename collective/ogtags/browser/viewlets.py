@@ -91,15 +91,15 @@ class OGTagsViewlet(ViewletBase):
         context = aq_inner(self.context)
         try:
             scales = context.restrictedTraverse(
-                '/'.join(context.getPhysicalPath()) + '/@@images')
+                '/'.join(context.getPhysicalPath()) + '/@@images', None)
         except (AttributeError, KeyError):
-            return self.default_image(self.settings.default_img)
+            scales = None
         if not scales:
             return self.default_image(self.settings.default_img)
         try:
             image = context.image
             field = 'image'
-        except:
+        except AttributeError:
             try:
                 image = context.getField(
                     'image') or context.getField('leadImage')

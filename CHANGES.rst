@@ -4,7 +4,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed hidden Unauthorized error when called on a private folder with
+  a published default page.  [maurits]
 
 
 1.0.0 (2016-06-01)
