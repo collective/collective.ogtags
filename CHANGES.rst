@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0.0rc4 (unreleased)
----------------------
+1.0.0 (2016-06-01)
+------------------
 
 - Fixed KeyError on traverse.
   Fixes https://github.com/collective/collective.ogtags/issues/1
