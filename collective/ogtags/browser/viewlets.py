@@ -92,7 +92,7 @@ class OGTagsViewlet(ViewletBase):
         try:
             scales = context.restrictedTraverse(
                 '/'.join(context.getPhysicalPath()) + '/@@images')
-        except AttributeError:
+        except (AttributeError, KeyError):
             return self.default_image(self.settings.default_img)
         if not scales:
             return self.default_image(self.settings.default_img)
