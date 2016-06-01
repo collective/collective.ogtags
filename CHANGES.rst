@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.0.1 (2016-06-01)
 ------------------
 
 - Fixed hidden Unauthorized error when called on a private folder with
