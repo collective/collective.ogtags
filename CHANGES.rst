@@ -4,7 +4,7 @@ Changelog
 1.0.0rc4 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- Moved to https://github.com/collective/collective.ogtags. [maurits]
 
 
 1.0.0rc3 (2016-04-12)

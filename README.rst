@@ -44,3 +44,9 @@ following settings as possible:
  - Default image:
         Provide the URL to an image to be used in case no other image can be
         found. By default this will be ``/logo.png``.
+
+
+Code, issue tracker
+===================
+
+See https://github.com/collective/collective.ogtags
