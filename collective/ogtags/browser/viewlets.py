@@ -101,7 +101,8 @@ class OGTagsViewlet(ViewletBase):
             field = 'image'
         except:
             try:
-                image = context.getField('image') or context.getField('leadImage')
+                image = context.getField(
+                    'image') or context.getField('leadImage')
                 field = image.getName()
                 if not field:
                     raise AttributeError
