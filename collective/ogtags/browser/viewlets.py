@@ -90,8 +90,7 @@ class OGTagsViewlet(ViewletBase):
         tags = []
         context = aq_inner(self.context)
         try:
-            scales = context.restrictedTraverse(
-                '/'.join(context.getPhysicalPath()) + '/@@images', None)
+            scales = context.restrictedTraverse('@@images', None)
         except (AttributeError, KeyError):
             scales = None
         if not scales:

@@ -5,7 +5,8 @@ Changelog
 ------------------
 
 - Fixed hidden Unauthorized error when called on a private folder with
-  a published default page.  [maurits]
+  a published default page.  Show the image of the page anyway in this
+  case, instead of showing the fallback image.  [maurits]
 
 
 1.0.0 (2016-06-01)
