@@ -4,6 +4,10 @@ Changelog
 1.0.0rc4 (unreleased)
 ---------------------
 
+- Fixed KeyError on traverse.
+  Fixes https://github.com/collective/collective.ogtags/issues/1
+  [parruc]
+
 - Moved to https://github.com/collective/collective.ogtags. [maurits]
 
 
