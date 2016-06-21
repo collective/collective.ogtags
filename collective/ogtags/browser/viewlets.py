@@ -8,14 +8,6 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component import queryMultiAdapter
 
-import cgi
-
-
-def escape(value):
-    """Extended escape, taken from quintagroup.seoptimizer."""
-    value = cgi.escape(value, True)
-    return value.replace("'", "&apos;")
-
 
 class OGTagsViewlet(ViewletBase):
 
@@ -48,13 +40,11 @@ class OGTagsViewlet(ViewletBase):
 
         # set title
         if title:
-            title = escape(title)
             tags['og:title'] = title
             tags['twitter:title'] = title
 
         # set description
         if description:
-            description = escape(description)
             tags['og:description'] = description
             tags['twitter:description'] = description
 
