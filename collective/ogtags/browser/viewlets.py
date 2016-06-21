@@ -1,11 +1,12 @@
-from zope.component import (ComponentLookupError, getMultiAdapter, getUtility,
-                            queryMultiAdapter)
-
 from Acquisition import aq_inner
 from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
 from Products.CMFPlone.utils import safe_unicode
+from zope.component import ComponentLookupError
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.component import queryMultiAdapter
 
 
 class OGTagsViewlet(ViewletBase):
