@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.2 (unreleased)
+1.0.2 (2016-06-24)
 ------------------
 
 - Fixed double escaping of attributes, for example when you have ``&``
