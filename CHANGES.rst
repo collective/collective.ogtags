@@ -4,7 +4,8 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed double escaping of attributes, for example when you have ``&``
+  in a title.  Fixes issue #3.  [parruc]
 
 
 1.0.1 (2016-06-01)
