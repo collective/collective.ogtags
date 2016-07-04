@@ -1,5 +1,6 @@
 from Acquisition import aq_inner
 from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
+from collective.ogtags.interfaces import IOGTagsImageProvider
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
 from Products.CMFPlone.utils import safe_unicode
@@ -29,7 +30,7 @@ class OGTagsViewlet(ViewletBase):
 
         # Allow overrides from quintagroup.seoptimizer
         seo = queryMultiAdapter(
-            (self.context, self.request), name='seo_context')
+            (context, self.request), name='seo_context')
         if seo is not None:
             if seo['has_seo_title']:
                 title = safe_unicode(seo["seo_title"])
@@ -70,6 +71,8 @@ class OGTagsViewlet(ViewletBase):
         return tags
 
     def image_tags(self):
+        tags = []
+        context = aq_inner(self.context)
         try:
             self.settings = getUtility(
                 IRegistry).forInterface(IOGTagsControlPanel)
@@ -77,33 +80,29 @@ class OGTagsViewlet(ViewletBase):
             return
         if not self.settings.enabled:
             return
-        tags = []
-        context = aq_inner(self.context)
+        default_image = self.default_image(self.settings.default_img)
         try:
-            scales = context.restrictedTraverse('@@images', None)
+            image_provider = IOGTagsImageProvider(context)
+        except TypeError:
+            image_provider = None
+        if image_provider is None:
+            return default_image
+        try:
+            image, fieldname = image_provider.getOGTagsImage()
+        except (AttributeError, TypeError):
+            image = fieldname = None
+        try:
+            scales = image.restrictedTraverse('@@images', None)
         except (AttributeError, KeyError):
             scales = None
-        if not scales:
-            return self.default_image(self.settings.default_img)
-        try:
-            image = context.image
-            field = 'image'
-        except AttributeError:
-            try:
-                image = context.getField(
-                    'image') or context.getField('leadImage')
-                field = image.getName()
-                if not field:
-                    raise AttributeError
-            except AttributeError:
-                return self.default_image(self.settings.default_img)
+        if not image or not fieldname or not scales:
+            return default_image
         tag_scales = []
         for scale in [
                 'og_fbl',
                 'og_fb',
                 'og_tw',
                 'og_ln']:
-            fieldname = field or 'image'
             try:
                 image = scales.scale(fieldname, scale=scale)
                 if not image:
@@ -120,9 +119,7 @@ class OGTagsViewlet(ViewletBase):
                     tag['og:image:height'] = image.height
                     tag_scales.append((image.width, image.height))
             tags.append(tag.copy())
-        if not tags:
-            return self.default_image(self.settings.default_img)
-        return tags
+        return tags or default_image
 
     def default_image(self, image):
         if not image:
