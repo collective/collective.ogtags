@@ -4,7 +4,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Select image field via adapter.  The default adapters work on
+  dexterity and Archetypes content types and return either the image
+  or the leadImage field.  [parruc]
 
 
 1.0.2 (2016-06-24)
