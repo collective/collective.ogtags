@@ -20,6 +20,11 @@ Installation
  - add collective.ogtags to your eggs and run buildout
  - go to the add-ons page in the plone control panel and install
    collective.ogtags
+ - If you use custom image fields write an adapter for
+   collective.ogtags.interfaces.IOGTagsImageProvider and your content-type to
+   get this image (optional because collective.ogtags already registers the
+   adapters for generic dexterity and archetype CT searching for "image" and
+   "leadImage" fields)
 
 
 Settings
