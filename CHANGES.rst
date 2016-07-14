@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0.3 (unreleased)
-------------------
+1.1 (2016-07-14)
+----------------
 
 - Select image field via adapter.  The default adapters work on
   dexterity and Archetypes content types and return either the image
