@@ -84,13 +84,11 @@ class OGTagsViewlet(ViewletBase):
         try:
             image_provider = IOGTagsImageProvider(context)
         except TypeError:
-            image_provider = None
-        if image_provider is None:
             return default_image
-        try:
-            image, fieldname = image_provider.getOGTagsImage()
-        except (AttributeError, TypeError):
-            image = fieldname = None
+        result = image_provider.getOGTagsImage()
+        if result is None:
+            return default_image
+        image, fieldname = result
         try:
             scales = image.restrictedTraverse('@@images', None)
         except (AttributeError, KeyError):
