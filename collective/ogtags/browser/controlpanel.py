@@ -36,6 +36,18 @@ class IOGTagsControlPanel(Interface):
         required=False,
         default=u'/logo.png')
 
+    default_img_width = schema.TextLine(
+        title=_(u'Default image width'),
+        description=_(u'The width of the default image expressed in pixel'),
+        required=False,
+        default=u'200')
+
+    default_img_height = schema.TextLine(
+        title=_(u'Default image height'),
+        description=_(u'The hight of the default image expressed in pixel'),
+        required=False,
+        default=u'200')
+
 
 class OGTagsCPForm(controlpanel.RegistryEditForm):
     schema = IOGTagsControlPanel

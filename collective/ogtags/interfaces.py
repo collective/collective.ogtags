@@ -1,5 +1,6 @@
 from zope.interface import Interface
 
+
 class IOGTagsImageProvider(Interface):
     """Adapter to get the image that will be used by ogtags viewlet."""
 

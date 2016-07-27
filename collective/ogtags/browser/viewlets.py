@@ -80,7 +80,7 @@ class OGTagsViewlet(ViewletBase):
             return
         if not self.settings.enabled:
             return
-        default_image = self.default_image(self.settings.default_img)
+        default_image = self.default_image(self.settings)
         try:
             image_provider = IOGTagsImageProvider(context)
         except TypeError:
@@ -119,7 +119,10 @@ class OGTagsViewlet(ViewletBase):
             tags.append(tag.copy())
         return tags or default_image
 
-    def default_image(self, image):
+    def default_image(self, settings):
+        image = settings.default_img
+        width = settings.default_img_width
+        height = settings.default_img_height
         if not image:
             return
         portal_state = getMultiAdapter(
@@ -129,4 +132,7 @@ class OGTagsViewlet(ViewletBase):
         twitter_tag['twitter:image'] = '%s%s' % (site_root_url, image)
         og_tag = {}
         og_tag['og:image'] = '%s%s' % (site_root_url, image)
+        if width and height:
+            og_tag['og:image:width'] = width
+            og_tag['og:image:height'] = height
         return [twitter_tag, og_tag]

@@ -1,6 +1,5 @@
-from zope.interface import implementer
-
 from collective.ogtags.interfaces import IOGTagsImageProvider
+from zope.interface import implementer
 
 
 @implementer(IOGTagsImageProvider)
