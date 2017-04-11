@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-04-12 21:31+0000\n"
+"POT-Creation-Date: 2017-04-11 12:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,11 +33,11 @@ msgstr ""
 msgid "Facebook username"
 msgstr ""
 
-#: ./configure.zcml:19
+#: ./configure.zcml:20
 msgid "Installs the collective.ogtags package"
 msgstr ""
 
-#: ./browser/controlpanel.py:42
+#: ./browser/controlpanel.py:47
 msgid "OGTags settings"
 msgstr ""
 
@@ -45,7 +45,11 @@ msgstr ""
 msgid "Path to default image"
 msgstr ""
 
-#: ./browser/controlpanel.py:43
+#: ./browser/controlpanel.py:40
+msgid "Pinterest id"
+msgstr ""
+
+#: ./browser/controlpanel.py:48
 msgid "Settings for collective.ogtags"
 msgstr ""
 
@@ -57,7 +61,7 @@ msgstr ""
 msgid "Twitter username"
 msgstr ""
 
-#: ./configure.zcml:19
+#: ./configure.zcml:20
 msgid "collective.ogtags"
 msgstr ""
 
