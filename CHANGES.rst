@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.1 (unreleased)
-------------------
+1.2 (unreleased)
+----------------
 
 - Added ``pinterest_id`` to set a Pinterest verification meta key.
   You need to apply the upgrade step, otherwise the viewlet shows nothing.
