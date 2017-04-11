@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2017-04-11)
 ----------------
 
 - Added ``pinterest_id`` to set a Pinterest verification meta key.
