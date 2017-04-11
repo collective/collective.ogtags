@@ -4,7 +4,12 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added ``pinterest_id`` to set a Pinterest verification meta key.
+  You need to apply the upgrade step, otherwise the viewlet shows nothing.
+  You may need to go to the Pinterest website and tell them to
+  verify your site.
+  See https://help.pinterest.com/en/articles/confirm-your-website
+  [maurits]
 
 
 1.1 (2016-07-14)

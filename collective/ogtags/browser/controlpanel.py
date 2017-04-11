@@ -36,6 +36,11 @@ class IOGTagsControlPanel(Interface):
         required=False,
         default=u'/logo.png')
 
+    pinterest_id = schema.TextLine(
+        title=_(u'Pinterest id'),
+        required=False,
+        default=u'')
+
 
 class OGTagsCPForm(controlpanel.RegistryEditForm):
     schema = IOGTagsControlPanel

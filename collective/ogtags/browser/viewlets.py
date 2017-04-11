@@ -17,6 +17,8 @@ class OGTagsViewlet(ViewletBase):
             self.settings = getUtility(
                 IRegistry).forInterface(IOGTagsControlPanel)
         except (ComponentLookupError, KeyError):
+            # Note: a KeyError happens when we have added a field to the
+            # interface but haven't upgraded yet.
             return
         if not self.settings.enabled:
             return
@@ -67,6 +69,8 @@ class OGTagsViewlet(ViewletBase):
         tags['og:type'] = u'website'
         if self.settings.og_site_name:
             tags['og:site_name'] = self.settings.og_site_name
+        if self.settings.pinterest_id:
+            tags['p:domain_verify'] = self.settings.pinterest_id
 
         return tags
 
