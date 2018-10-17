@@ -33,8 +33,7 @@ class IOGTagsControlPanel(Interface):
     default_img = schema.TextLine(
         title=_(u'Default image'),
         description=_(u'Path to default image'),
-        required=False,
-        default=u'/logo.png')
+        required=False)
 
     pinterest_id = schema.TextLine(
         title=_(u'Pinterest id'),
