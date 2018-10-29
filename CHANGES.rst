@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.1 (unreleased)
+2.0.0 (2018-10-29)
 ------------------
 
 - Plone 5.1 compatibilty. Use 1.x branch for Plone 4.  [jladage]
