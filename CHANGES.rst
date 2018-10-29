@@ -4,7 +4,7 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Plone 5.1 compatibilty. Use 1.x branch for Plone 4.  [jladage]
 
 
 1.2 (2017-04-11)
