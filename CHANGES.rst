@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.1 (2018-11-16)
 ------------------
 
 - Update README and pypi classifier, collective.ogtags 2.X is for Plone 5.1 [fredvd]
