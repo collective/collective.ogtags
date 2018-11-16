@@ -4,13 +4,15 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update README and pypi classifier, collective.ogtags 2.X is for Plone 5.1 [fredvd]
+
+- Allow Site Administrators to change OGTags in the control panel. Extra permission and upgrade step. [fredvd]
 
 
 2.0.0 (2018-10-29)
 ------------------
 
-- Plone 5.1 compatibilty. Use 1.x branch for Plone 4.  [jladage]
+- Plone 5.1 compatibility. Use 1.x branch for Plone 4.  [jladage]
 
 
 1.2 (2017-04-11)

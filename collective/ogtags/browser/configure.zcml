@@ -8,11 +8,13 @@
 
   <include package="plone.app.registry" />
 
+  <include file="permissions.zcml" />
+
   <browser:page
       name="og-settings"
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       class=".controlpanel.OGTagsControlPanel"
-      permission="cmf.ManagePortal"
+      permission="collective.ogtags.settings"
       />
 
   <browser:viewlet

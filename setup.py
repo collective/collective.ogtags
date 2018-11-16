@@ -5,7 +5,7 @@ version = '2.0.1.dev0'
 setup(
     name='collective.ogtags',
     version=version,
-    description='OpenGraph for plone4',
+    description='OpenGraph for plone5',
     long_description=(open('README.rst').read() + '\n' +
                       open('CONTRIBUTORS.rst').read() + '\n' +
                       open('CHANGES.rst').read()),
@@ -14,7 +14,7 @@ setup(
     classifiers=[
         'Framework :: Plone',
         'Programming Language :: Python',
-        'Framework :: Plone :: 4.3',
+        'Framework :: Plone :: 5.1',
         'Programming Language :: Python :: 2.7',
     ],
     keywords='OpenGraph tags facebook twitter linkedin',

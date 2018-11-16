@@ -35,6 +35,14 @@
       import_steps="plone.app.registry"
       />
 
+  <genericsetup:upgradeDepends
+      source="1001"
+      destination="1002"
+      title="Upgrade control panel permissions for Site Administrator"
+      profile="collective.ogtags:default"
+      import_steps="controlpanel"
+      />
+
   <configure zcml:condition="installed plone.dexterity">
       <adapter
           for="plone.dexterity.interfaces.IDexterityContent"

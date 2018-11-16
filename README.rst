@@ -2,9 +2,10 @@ Introduction
 ============
 
 This packages provides Open Graph tags similar to those built in in plone 5.
-Basically this is an attempt to backport the social media viewlet of
-plone.app.layout in plone 5 to plone 4.
-
+Basically this started as a backport the social media viewlet of
+plone.app.layout in plone 5 to plone 4. However, in Plone 5.X still misses
+some extra features and fixes from collective.ogtags, so v2 of collective.ogtags
+has been made compatible with Plone 5.
 
 What is Open Graph
 ==================

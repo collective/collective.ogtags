@@ -10,5 +10,8 @@ Credits
 * `Jean-Paul Ladage <https://github.com/jladage>`_ (Zest Software) is another
   maintainer of collective.ogtags.
 
+* `Fred van Dijk <https://github.com/fredvd>`_ (Zest Software) is another
+  maintainer of collective.ogtags.
+
 * `Matteo Parrucci <https://github.com/parruc>`_ (Bologna university) is a
   simple contributor of collective.ogtags.
