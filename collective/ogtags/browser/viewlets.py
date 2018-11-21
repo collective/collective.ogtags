@@ -1,6 +1,5 @@
 from Acquisition import aq_inner
 
-from collective.behavior.seo.interfaces import ISEOFieldsMarker
 from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from collective.ogtags.interfaces import IOGTagsImageProvider
 from plone.app.layout.viewlets import ViewletBase
@@ -12,6 +11,11 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component import queryMultiAdapter
 
+try:
+    from collective.behavior.seo.interfaces import ISEOFieldsMarker
+    BEHAVIOR_SEO = True
+except:
+    BEHAVIOR_SEO = False
 
 class OGTagsViewlet(ViewletBase):
 
@@ -33,19 +37,8 @@ class OGTagsViewlet(ViewletBase):
         description = context.Description()
         url = context.absolute_url()
 
-        # Allow overrides from quintagroup.seoptimizer
-        seo = queryMultiAdapter(
-            (context, self.request), name='seo_context')
-        if seo is not None:
-            if seo['has_seo_title']:
-                title = safe_unicode(seo["seo_title"])
-            if seo['has_seo_description']:
-                description = safe_unicode(seo["seo_description"])
-            if seo['has_seo_canonical']:
-                url = safe_unicode(seo["seo_canonical"])
-
         # Allow overrides from collective.behavior.seo
-        if ISEOFieldsMarker.providedBy(context):
+        if BEHAVIOR_SEO and ISEOFieldsMarker.providedBy(context):
             if context.seo_title:
                 title = safe_unicode(context.seo_title)
             if context.seo_description:

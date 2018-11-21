@@ -21,7 +21,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="collective.behavior.seo (uninstall)"
+      title="collective.ogtags (uninstall)"
       directory="profiles/uninstall"
       description="Uninstalls the collective.ogtags package."
       provides="Products.GenericSetup.interfaces.EXTENSION"

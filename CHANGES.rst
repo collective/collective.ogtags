@@ -4,7 +4,11 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix uninstall profile title. [fredvd]
+
+- Support for collective.behavior.seo title/description is optional now (conditional Python import). [fredvd]
+
+- Remove support for quintagroup.seooptimizer, this is plone 5.1+ only. [fredvd]
 
 
 2.0.1 (2018-11-16)
