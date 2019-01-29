@@ -3,7 +3,6 @@ from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from collective.ogtags.interfaces import IOGTagsImageProvider
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
-from Products.CMFPlone.utils import getSiteLogo
 from Products.CMFPlone.utils import safe_unicode
 from zope.component import ComponentLookupError
 from zope.component import getMultiAdapter
@@ -85,7 +84,6 @@ class OGTagsViewlet(ViewletBase):
             return
         if not self.settings.enabled:
             return
-
         default_image = self.default_image(self.settings.default_img)
         try:
             image_provider = IOGTagsImageProvider(context)
@@ -126,16 +124,13 @@ class OGTagsViewlet(ViewletBase):
         return tags or default_image
 
     def default_image(self, image):
-        if image is not None:
-            portal_state = getMultiAdapter(
-                 (self.context, self.request), name=u'plone_portal_state')
-            site_root_url = portal_state.navigation_root_url()
-            image_url = '%s%s' % (site_root_url, image)
-        else:
-            image_url = getSiteLogo()
-
+        if not image:
+            return
+        portal_state = getMultiAdapter(
+            (self.context, self.request), name=u'plone_portal_state')
+        site_root_url = portal_state.navigation_root_url()
         twitter_tag = {}
-        twitter_tag['twitter:image'] = image_url
+        twitter_tag['twitter:image'] = '%s%s' % (site_root_url, image)
         og_tag = {}
-        og_tag['og:image'] = image_url
+        og_tag['og:image'] = '%s%s' % (site_root_url, image)
         return [twitter_tag, og_tag]
