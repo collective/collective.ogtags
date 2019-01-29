@@ -1,6 +1,4 @@
 from Acquisition import aq_inner
-
-from collective.behavior.seo.interfaces import ISEOFieldsMarker
 from collective.ogtags.browser.controlpanel import IOGTagsControlPanel
 from collective.ogtags.interfaces import IOGTagsImageProvider
 from plone.app.layout.viewlets import ViewletBase
@@ -43,13 +41,6 @@ class OGTagsViewlet(ViewletBase):
                 description = safe_unicode(seo["seo_description"])
             if seo['has_seo_canonical']:
                 url = safe_unicode(seo["seo_canonical"])
-
-        # Allow overrides from collective.behavior.seo
-        if ISEOFieldsMarker.providedBy(context):
-            if context.seo_title:
-                title = safe_unicode(context.seo_title)
-            if context.seo_description:
-                description = safe_unicode(context.seo_description)
 
         # set title
         if title:
