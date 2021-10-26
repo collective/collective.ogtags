@@ -4,6 +4,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- Catch TypeError when generating image scales from an empty DX image field that was added to the CT schema later. [fredvd]  
+
 - Fix uninstall profile title. [fredvd]
 
 - Support for collective.behavior.seo title/description is optional now (conditional Python import). [fredvd]

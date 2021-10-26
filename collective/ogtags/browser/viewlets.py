@@ -113,7 +113,7 @@ class OGTagsViewlet(ViewletBase):
                 image = scales.scale(fieldname, scale=scale)
                 if not image:
                     continue
-            except AttributeError:
+            except (AttributeError, KeyError) as e:
                 continue
             tag = {}
             if scale == 'og_tw':
