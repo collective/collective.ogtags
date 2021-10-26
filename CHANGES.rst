@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.2 (unreleased)
+2.0.2 (2021-10-26)
 ------------------
 
 - Catch TypeError when generating image scales from an empty DX image field that was added to the CT schema later. [fredvd]  
