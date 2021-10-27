@@ -4,7 +4,7 @@ Changelog
 2.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Catch TypeError excpetion on image scale creation for ogtags for real, used wrong KeyError. [fredvd]
 
 
 2.0.2 (2021-10-26)

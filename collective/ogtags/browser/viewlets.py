@@ -13,16 +13,16 @@ from zope.component import queryMultiAdapter
 
 try:
     from collective.behavior.seo.interfaces import ISEOFieldsMarker
+
     BEHAVIOR_SEO = True
 except:
     BEHAVIOR_SEO = False
 
-class OGTagsViewlet(ViewletBase):
 
+class OGTagsViewlet(ViewletBase):
     def meta_tags(self):
         try:
-            self.settings = getUtility(
-                IRegistry).forInterface(IOGTagsControlPanel)
+            self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
         except (ComponentLookupError, KeyError):
             # Note: a KeyError happens when we have added a field to the
             # interface but haven't upgraded yet.
@@ -62,8 +62,9 @@ class OGTagsViewlet(ViewletBase):
         if self.settings.fb_id:
             tags['fb:app_id'] = self.settings.fb_id
         if self.settings.fb_username:
-            tags['og:article:publisher'] = 'https://www.facebook.com/' \
-                + self.settings.fb_username
+            tags['og:article:publisher'] = (
+                'https://www.facebook.com/' + self.settings.fb_username
+            )
         if self.settings.tw_id:
             tags['twitter:site'] = self.settings.tw_id
         tags['twitter:card'] = u'summary'
@@ -81,8 +82,7 @@ class OGTagsViewlet(ViewletBase):
         tags = []
         context = aq_inner(self.context)
         try:
-            self.settings = getUtility(
-                IRegistry).forInterface(IOGTagsControlPanel)
+            self.settings = getUtility(IRegistry).forInterface(IOGTagsControlPanel)
         except (ComponentLookupError, KeyError):
             return
         if not self.settings.enabled:
@@ -104,16 +104,12 @@ class OGTagsViewlet(ViewletBase):
         if not image or not fieldname or not scales:
             return default_image
         tag_scales = []
-        for scale in [
-                'og_fbl',
-                'og_fb',
-                'og_tw',
-                'og_ln']:
+        for scale in ['og_fbl', 'og_fb', 'og_tw', 'og_ln']:
             try:
                 image = scales.scale(fieldname, scale=scale)
                 if not image:
                     continue
-            except (AttributeError, KeyError) as e:
+            except (AttributeError, TypeError) as e:
                 continue
             tag = {}
             if scale == 'og_tw':
@@ -130,7 +126,8 @@ class OGTagsViewlet(ViewletBase):
     def default_image(self, image):
         if image is not None:
             portal_state = getMultiAdapter(
-                 (self.context, self.request), name=u'plone_portal_state')
+                (self.context, self.request), name=u'plone_portal_state'
+            )
             site_root_url = portal_state.navigation_root_url()
             image_url = '%s%s' % (site_root_url, image)
         else:
